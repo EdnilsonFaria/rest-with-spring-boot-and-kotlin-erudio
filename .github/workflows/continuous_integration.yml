@@ -33,10 +33,11 @@ jobs:
       working-directory: ./06_ParametersAndExceptionHandler/
       run: docker compose build
       
-    - name: Push to Docker-Hub container registry
+    - name: Push to Docker Hub Container registry
       run: |
-        docker tag ${{ secrets.DOCKER_USER_NAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.DOCKER_USER_NAME }}/rest-with-spring-boot-erudio:${{github.run.id}}
-        docker push ${{ secrets.DOCKER_USER_NAME }}/rest-with-spring-boot-erudio:${{github.run.id}}
-        docker push ${{ secrets.DOCKER_USER_NAME }}/rest-with-spring-boot-erudio:latest
+        docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:${{github.run_id}}
+        
+        docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:${{github.run_id}}
+        docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest
       
       
